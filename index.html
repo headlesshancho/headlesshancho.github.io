@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Peterkin — Illustration &amp; Graphic Design</title>
+<meta name="description" content="Brian Peterkin — Illustrator &amp; Graphic Designer. Visual identity, apparel, album art, tattoo design, and web. Los Angeles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121212;
+    --ink-soft:#1c1a18;
+    --paper:#f1e9da;
+    --paper-dim:#e7dcc7;
+    --orange:#ff5a1f;
+    --violet:#6b2fa0;
+    --grey:#8a8478;
+    --grey-line:rgba(241,233,218,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+
+  .display{font-family:'Bebas Neue',sans-serif; letter-spacing:0.02em;}
+  .mono{font-family:'Space Mono',monospace;}
+
+  :focus-visible{outline:3px solid var(--orange); outline-offset:3px;}
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 5vw;
+    mix-blend-mode:difference;
+  }
+  .nav-mark{font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.08em;}
+  .nav-links{display:flex; gap:28px; font-family:'Space Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;}
+  .nav-links a{text-decoration:none; opacity:0.85; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    padding:0 5vw 6vw;
+    background:
+      linear-gradient(180deg, rgba(18,18,18,0.15) 0%, rgba(18,18,18,0.55) 55%, var(--ink) 96%),
+      url('images/sunset-ave.jpg') center 30%/cover no-repeat;
+  }
+  .hero-inner{position:relative; z-index:2; width:100%;}
+  .hero-eyebrow{
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--orange); margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow::before{content:''; width:26px; height:2px; background:var(--orange); display:inline-block;}
+  .hero h1{
+    font-size:clamp(3.4rem, 12vw, 9.5rem);
+    line-height:0.86;
+    text-transform:uppercase;
+    color:var(--paper);
+    text-shadow:0 3px 0 rgba(0,0,0,0.25);
+  }
+  .hero h1 .accent{color:var(--orange);}
+  .hero-sub{
+    margin-top:22px;
+    max-width:540px;
+    font-size:1.05rem;
+    line-height:1.55;
+    color:var(--paper-dim);
+    font-weight:400;
+  }
+  .hero-tags{
+    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:28px;
+  }
+  .hero-tags span{
+    font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+    border:1px solid var(--grey-line); padding:6px 12px; border-radius:2px; color:var(--paper-dim);
+  }
+  .scroll-cue{
+    position:absolute; right:5vw; bottom:6vw; z-index:2;
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    display:flex; align-items:center; gap:10px; color:var(--paper-dim);
+    writing-mode:vertical-rl;
+  }
+  .scroll-cue .line{width:2px; height:60px; background:linear-gradient(var(--orange), transparent); }
+  @media (max-width:640px){ .scroll-cue{display:none;} }
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:100px 5vw;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+    margin-bottom:56px; flex-wrap:wrap;
+    border-bottom:1px solid var(--grey-line);
+    padding-bottom:22px;
+  }
+  .section-tag{
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange);
+  }
+  .section-head h2{
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(2.4rem,5vw,4rem); text-transform:uppercase; letter-spacing:0.01em;
+  }
+  .section-note{max-width:340px; font-size:0.92rem; color:var(--grey); line-height:1.5;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--paper); color:var(--ink);}
+  .about .section-head{border-color:rgba(18,18,18,0.14);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px;}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-copy p{font-size:1.08rem; line-height:1.7; margin-bottom:20px; color:#2a2620;}
+  .about-copy p:first-child{font-size:1.28rem; font-weight:600; line-height:1.5;}
+  .skill-list{
+    list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;
+  }
+  .skill-list li{
+    font-family:'Space Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em;
+    background:var(--ink); color:var(--paper); padding:7px 12px; border-radius:2px;
+  }
+  .about-side{
+    background:var(--ink-soft); color:var(--paper);
+    padding:34px; border-radius:2px; align-self:start;
+    position:relative;
+  }
+  .about-side::before{
+    content:'FILE NO. 001 — PROFILE';
+    font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:var(--orange);
+    display:block; margin-bottom:18px;
+  }
+  .about-side dl{display:grid; grid-template-columns:auto 1fr; gap:10px 16px; font-size:0.92rem;}
+  .about-side dt{font-family:'Space Mono',monospace; color:var(--grey); text-transform:uppercase; font-size:11px; letter-spacing:0.04em; padding-top:2px;}
+  .about-side dd{color:var(--paper-dim);}
+
+  /* ===== WORK GRID ===== */
+  .work{background:var(--ink);}
+  .filter-bar{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:44px;
+  }
+  .filter-btn{
+    font-family:'Space Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em;
+    background:transparent; color:var(--paper-dim); border:1px solid var(--grey-line);
+    padding:9px 16px; border-radius:2px; cursor:pointer; transition:all .2s;
+  }
+  .filter-btn:hover{border-color:var(--orange); color:var(--paper);}
+  .filter-btn.active{background:var(--orange); border-color:var(--orange); color:var(--ink); font-weight:700;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:34px 28px;
+  }
+  @media (max-width:960px){ .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .grid{grid-template-columns:1fr; gap:46px;} }
+
+  .card{
+    position:relative;
+    background:var(--paper);
+    padding:14px 14px 44px;
+    border-radius:2px;
+    box-shadow:0 14px 28px rgba(0,0,0,0.35);
+    transform:rotate(var(--r,0deg));
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s;
+    cursor:pointer;
+  }
+  .card:hover, .card:focus-within{
+    transform:rotate(0deg) translateY(-6px);
+    box-shadow:0 26px 44px rgba(0,0,0,0.5);
+    z-index:5;
+  }
+  .card:nth-child(3n+1){--r:-1.6deg;}
+  .card:nth-child(3n+2){--r:1.1deg;}
+  .card:nth-child(3n+3){--r:-0.7deg;}
+  .card:nth-child(3n){--r:1.8deg;}
+
+  .card .pin{
+    position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+    width:16px; height:16px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #ff8a5c, var(--orange) 60%, #b23c10 100%);
+    box-shadow:0 3px 6px rgba(0,0,0,0.4);
+  }
+  .card img{
+    width:100%; aspect-ratio:1/1; object-fit:cover;
+    filter:saturate(1.02);
+    background:#000;
+  }
+  .card-tag{
+    position:absolute; left:14px; bottom:14px;
+    font-family:'Space Mono',monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em;
+    background:var(--ink); color:var(--paper); padding:5px 9px; border-radius:2px;
+  }
+  .card-num{
+    position:absolute; right:14px; bottom:14px;
+    font-family:'Space Mono',monospace; font-size:10.5px; color:var(--grey);
+  }
+  .card-title{
+    margin-top:12px; font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:0.02em; color:var(--ink);
+    padding:0 2px;
+  }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:200; background:rgba(10,9,8,0.94);
+    display:none; align-items:center; justify-content:center; padding:6vh 4vw;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-height:88vh; max-width:88vw; object-fit:contain; box-shadow:0 30px 60px rgba(0,0,0,0.6);}
+  .lightbox-close{
+    position:absolute; top:26px; right:5vw; font-family:'Space Mono',monospace;
+    background:none; border:1px solid var(--grey-line); color:var(--paper);
+    width:42px; height:42px; border-radius:50%; cursor:pointer; font-size:16px;
+  }
+  .lightbox-caption{
+    position:absolute; bottom:26px; left:5vw; font-family:'Space Mono',monospace; font-size:12px; color:var(--paper-dim);
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+
+  /* ===== SERVICES ===== */
+  .services{background:var(--paper); color:var(--ink);}
+  .services .section-head{border-color:rgba(18,18,18,0.14);}
+  .tier-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(18,18,18,0.14);}
+  @media (max-width:860px){ .tier-grid{grid-template-columns:1fr;} }
+  .tier{background:var(--paper); padding:38px 30px;}
+  .tier-eyebrow{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; color:var(--orange); letter-spacing:0.08em;}
+  .tier h3{font-family:'Bebas Neue',sans-serif; font-size:2rem; margin-top:8px; letter-spacing:0.01em;}
+  .tier .price{font-family:'Space Mono',monospace; font-size:1.3rem; margin-top:6px; color:#2a2620;}
+  .tier p{margin-top:16px; font-size:0.94rem; line-height:1.6; color:#4a453c;}
+  .tier ul{margin-top:16px; padding-left:18px; font-size:0.9rem; color:#4a453c; line-height:1.8;}
+
+  .also-do{margin-top:50px; padding-top:36px; border-top:1px solid rgba(18,18,18,0.14);}
+  .also-do p.lead{font-weight:600; margin-bottom:14px; font-size:1rem;}
+  .also-grid{display:flex; flex-wrap:wrap; gap:10px;}
+  .also-grid span{
+    font-family:'Space Mono',monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.04em;
+    border:1px solid rgba(18,18,18,0.18); padding:8px 14px; border-radius:2px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    background:var(--ink); text-align:left;
+    position:relative;
+    padding-bottom:60px;
+  }
+  .contact h2.display{
+    font-size:clamp(2.6rem,8vw,6rem); text-transform:uppercase; line-height:0.92; max-width:900px;
+  }
+  .contact-links{margin-top:36px; display:flex; flex-wrap:wrap; gap:36px;}
+  .contact-links a{
+    font-family:'Space Mono',monospace; font-size:14px; text-decoration:none;
+    border-bottom:1px solid var(--grey-line); padding-bottom:4px; color:var(--paper);
+    transition:border-color .2s, color .2s;
+  }
+  .contact-links a:hover{border-color:var(--orange); color:var(--orange);}
+  .footer-bar{
+    margin-top:80px; padding-top:26px; border-top:1px solid var(--grey-line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); text-transform:uppercase; letter-spacing:0.05em;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-mark">B. PETERKIN</div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#services">Commissions</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Los Angeles · Est. 2004</div>
+      <h1>Illustration<br>&amp; <span class="accent">Graphic Design</span></h1>
+      <p class="hero-sub">Brian Peterkin — 20 years building visual identities, album covers, tattoo designs, and apparel graphics directly with clients. One artist, every stage, concept to final file.</p>
+      <div class="hero-tags">
+        <span>Album Art</span>
+        <span>Tattoo Design</span>
+        <span>Apparel Graphics</span>
+        <span>Visual Identity</span>
+        <span>Web Design</span>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span>Scroll</div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">002 — Profile</div>
+        <h2>About the Work</h2>
+      </div>
+      <p class="section-note">Independent, client-direct, and self-managed for two decades — from first sketch to final delivered file.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>Illustrator and graphic designer with 20 years of independent freelance experience, working directly with clients — musicians, apparel brands, and individuals — to build visual identities, illustrations, and brand graphics from concept through final delivery.</p>
+        <p>Work spans album covers, tattoo design, apparel graphics, editorial layouts, and logos, with additional experience in web design. Comfortable managing every stage of a project solo: discovery, revisions, production, and client communication — backed by strong Adobe Creative Cloud skills and organized file delivery.</p>
+        <p>Self-directed projects include <em>AV Magazine</em>, a conceptual editorial publication exploring print and digital media, and <em>Rage of Aquarius</em>, a visual identity and merchandise campaign.</p>
+        <ul class="skill-list">
+          <li>Illustration</li>
+          <li>Tattoo Design</li>
+          <li>Album Art</li>
+          <li>Apparel Graphics</li>
+          <li>Visual Identity</li>
+          <li>Editorial Design</li>
+          <li>Web Design</li>
+          <li>Adobe Illustrator</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe InDesign</li>
+        </ul>
+      </div>
+      <div class="about-side">
+        <dl>
+          <dt>Based</dt><dd>Los Angeles, CA</dd>
+          <dt>Active</dt><dd>2004 — Present</dd>
+          <dt>Clients</dt><dd>Musicians, apparel brands, independent commissions</dd>
+          <dt>Delivery</dt><dd>Print-ready &amp; digital, fully organized files</dd>
+          <dt>Portfolio</dt><dd><a href="https://behance.net/brianpeterkin" style="text-decoration:underline;">behance.net/brianpeterkin</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">003 — Selected Work</div>
+        <h2>On the Board</h2>
+      </div>
+      <p class="section-note">A working wall of recent pieces — characters, scenes, and commission samples.</p>
+    </div>
+
+    <div class="filter-bar" role="tablist" aria-label="Filter artwork by category">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="character">Character</button>
+      <button class="filter-btn" data-filter="environment">Environment</button>
+      <button class="filter-btn" data-filter="commission">Commission Style</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <!-- Cards injected by JS from DATA below -->
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">004 — Commissions</div>
+        <h2>Work With Me</h2>
+      </div>
+      <p class="section-note">Straightforward tiers to start. Every project scoped to what you actually need.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-eyebrow">Tier 01</div>
+        <h3>Quick Sketch</h3>
+        <div class="price">$75 – $150</div>
+        <p>A focused single-subject piece — clean line work, flat or light color. Fast turnaround.</p>
+        <ul>
+          <li>1 subject, simple background</li>
+          <li>Digital file delivery</li>
+          <li>1 revision round</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-eyebrow">Tier 02</div>
+        <h3>Full Color Piece</h3>
+        <div class="price">$200 – $400</div>
+        <p>Full character or scene illustration, rendered and detailed — album art, portrait, or tattoo-ready line work.</p>
+        <ul>
+          <li>Full color, shading &amp; detail</li>
+          <li>Print-ready file prep</li>
+          <li>2 revision rounds</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-eyebrow">Tier 03</div>
+        <h3>Custom Identity</h3>
+        <div class="price">$450+</div>
+        <p>Full visual identity, merch capsule, or multi-piece project — logo, apparel graphics, or an album's full art package.</p>
+        <ul>
+          <li>Concept development included</li>
+          <li>Multiple deliverables &amp; formats</li>
+          <li>Ongoing collaboration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="also-do">
+      <p class="lead">Also available for:</p>
+      <div class="also-grid">
+        <span>Tattoo Design</span>
+        <span>Website Design</span>
+        <span>Logo &amp; Brand Identity</span>
+        <span>Editorial Layout</span>
+        <span>Merch &amp; Apparel Graphics</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-head" style="border-color:var(--grey-line);">
+      <div>
+        <div class="section-tag">005 — Contact</div>
+      </div>
+    </div>
+    <h2 class="display">Got a project?<br>Let's build it.</h2>
+    <div class="contact-links">
+      <a href="mailto:brianpeterkin@icloud.com">brianpeterkin@icloud.com</a>
+      <a href="tel:3235722770">323-572-2770</a>
+      <a href="https://behance.net/brianpeterkin" target="_blank" rel="noopener">Behance ↗</a>
+    </div>
+    <div class="footer-bar">
+      <span>Brian Peterkin — Los Angeles, CA</span>
+      <span>Illustration &amp; Graphic Design, 2004–Present</span>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+<script>
+  const DATA = [
+    { src:"images/mbappe.jpg", title:"Match Point", tag:"character", num:"01" },
+    { src:"images/peace-devil.png", title:"Peace Sign Devil", tag:"character", num:"02" },
+    { src:"images/mountain-village-bike.jpg", title:"Mountain Road", tag:"environment", num:"03" },
+    { src:"images/portrait-elle.jpg", title:"Elle", tag:"character", num:"04" },
+    { src:"images/argentina-street.jpg", title:"Argentina Street", tag:"environment", num:"05" },
+    { src:"images/sunset-ave.jpg", title:"Sunset Ave", tag:"environment", num:"06" },
+    { src:"images/ny-attitude.jpg", title:"NY Attitude", tag:"character", num:"07" },
+    { src:"images/portrait-lova.jpg", title:"Lova", tag:"character", num:"08" },
+    { src:"images/westside-truck.jpg", title:"Westside", tag:"environment", num:"09" },
+    { src:"images/montecito-rooftop.jpg", title:"Montecito Nights", tag:"environment", num:"10" },
+    { src:"images/ojai-rooftop.jpg", title:"Ojai", tag:"environment", num:"11" },
+    { src:"images/gecko-scorpion.jpg", title:"True to Nature", tag:"commission", num:"12" },
+    { src:"images/magneto.jpg", title:"Magnetism", tag:"character", num:"13" },
+    { src:"images/wolverine-sabretooth.jpg", title:"Wolverine & Sabretooth (Fan Art)", tag:"commission", num:"14" },
+  ];
+
+  const grid = document.getElementById('grid');
+  function renderGrid(filter){
+    grid.innerHTML = '';
+    DATA.forEach(item => {
+      if(filter !== 'all' && item.tag !== filter) return;
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.tabIndex = 0;
+      card.setAttribute('role','button');
+      card.setAttribute('aria-label', 'View ' + item.title + ' full size');
+      card.innerHTML = `
+        <div class="pin"></div>
+        <img src="${item.src}" alt="${item.title}" loading="lazy">
+        <span class="card-tag">${item.tag}</span>
+        <span class="card-num">${item.num}</span>
+        <div class="card-title">${item.title}</div>
+      `;
+      card.addEventListener('click', () => openLightbox(item));
+      card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(item); } });
+      grid.appendChild(card);
+    });
+  }
+  renderGrid('all');
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(btn.dataset.filter);
+    });
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  function openLightbox(item){
+    lightboxImg.src = item.src;
+    lightboxImg.alt = item.title;
+    lightboxCaption.textContent = item.title + ' — ' + item.tag;
+    lightbox.classList.add('open');
+  }
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.remove('open'); });
+</script>
+
+</body>
+</html>
