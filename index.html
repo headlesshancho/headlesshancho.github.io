@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brian Peterkin — Illustration &amp; Graphic Design</title>
+<title>Headless by Design — Illustration &amp; Graphic Design</title>
 <meta name="description" content="Headless by Design — Illustrator &amp; Graphic Designer. Visual identity, apparel, album art, tattoo design, and web. Los Angeles.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,16 +270,25 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
     font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); text-transform:uppercase; letter-spacing:0.05em;
   }
+  .templates{padding:80px 0;}
+  .templates-intro{color:var(--grey-line); margin-bottom:32px; max-width:60ch;}
+  .templates-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:24px;}
+  .template-card{display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid var(--grey-line); overflow:hidden; transition:border-color .2s, transform .2s;}
+  .template-card:hover{border-color:var(--orange); transform:translateY(-2px);}
+  .template-card img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block;}
+  .template-name{font-weight:600; padding:16px 16px 4px;}
+  .template-tag{font-size:0.85rem; color:var(--grey-line); padding:0 16px 16px;}
 </style>
 </head>
 <body>
 
   <nav class="nav">
-    <div class="nav-mark">B. PETERKIN</div>
+    <div class="nav-mark">HEADLESS BY DESIGN</div>
     <div class="nav-links">
-      <a href="#work">Work</a>
       <a href="#about">About</a>
+      <a href="#work">Work</a>
       <a href="#services">Commissions</a>
+      <a href="#templates">Templates</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
