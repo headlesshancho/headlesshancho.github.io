@@ -270,7 +270,7 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
     font-family:'Space Mono',monospace; font-size:11px; color:var(--grey); text-transform:uppercase; letter-spacing:0.05em;
   }
-  .templates{padding:80px 0;}
+  .templates{padding:80px 5vw;}
   .templates-intro{color:var(--paper-dim); margin-bottom:32px; max-width:60ch;}
   .templates-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:24px;}
   .template-card{display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid var(--grey-line); overflow:hidden; transition:border-color .2s, transform .2s;}
@@ -297,7 +297,7 @@
     <div class="hero-inner">
       <div class="hero-eyebrow">Los Angeles · Est. 2004</div>
       <h1>Illustration<br>&amp; <span class="accent">Graphic Design</span></h1>
-      <p class="hero-sub">Headless by Design — 20 years building visual identities, album covers, tattoo designs, and apparel graphics directly with clients. One artist, every stage, concept to final file.</p>
+      <p class="hero-sub">Headless by Design — building visual identities, album covers, tattoo designs, and apparel graphics directly with clients. One artist, every stage, concept to final file.</p>
       <div class="hero-tags">
         <span>Album Art</span>
         <span>Tattoo Design</span>
@@ -319,7 +319,7 @@
     </div>
     <div class="about-grid">
       <div class="about-copy">
-        <p>Illustrator and graphic designer with 20 years of independent freelance experience, working directly with clients — musicians, apparel brands, and individuals — to build visual identities, illustrations, and brand graphics from concept through final delivery.</p>
+        <p>Illustrator and graphic designer working directly with clients — musicians, apparel brands, and individuals — to build visual identities, illustrations, and brand graphics from concept through final delivery.</p>
         <p>Work spans album covers, tattoo design, apparel graphics, editorial layouts, and logos, with additional experience in web design. Comfortable managing every stage of a project solo: discovery, revisions, production, and client communication — backed by strong Adobe Creative Cloud skills and organized file delivery.</p>
         <p>Self-directed projects include <em>AV Magazine</em>, a conceptual editorial publication exploring print and digital media, and <em>Rage of Aquarius</em>, a visual identity and merchandise campaign.</p>
         <ul class="skill-list">
@@ -361,6 +361,7 @@
       <button class="filter-btn" data-filter="character">Character</button>
       <button class="filter-btn" data-filter="environment">Environment</button>
       <button class="filter-btn" data-filter="commission">Commission Style</button>
+      <button class="filter-btn" data-filter="case-study">Case Study</button>
     </div>
 
     <div class="grid" id="grid">
@@ -436,6 +437,12 @@
       <span class="template-name">Portfolio Template</span>
       <span class="template-tag">Minimal · Gallery-first</span>
     </a>
+
+    <a href="https://headlesshancho.github.io/darkTemplate" target="_blank" rel="noopener" class="template-card">
+      <img src="images/darkTemplate-preview.jpg" alt="darkTemplate" style="object-position: center 20%;">
+      <span class="template-name">darkTemplate</span>
+      <span class="template-tag">Dark maximalist · Full-bleed</span>
+    </a>
   </div>
 </section>
 
@@ -449,7 +456,7 @@
     <div class="contact-links">
       <a href="mailto:headlessbydesign@proton.me">headlessbydesign@proton.me</a>
       <a href="(213)423-3510">(213)423-3510</a>
-      
+
     </div>
     <div class="footer-bar">
       <span>Headless by Design — Los Angeles, CA</span>
@@ -465,20 +472,20 @@
 
 <script>
   const DATA = [
-    { src:"images/mbappe.jpg", title:"Match Point", tag:"character", num:"01" },
-    { src:"images/peace-devil.png", title:"Peace Sign Devil", tag:"character", num:"02" },
-    { src:"images/mountain-village-bike.jpg", title:"Mountain Road", tag:"environment", num:"03" },
-    { src:"images/portrait-elle.jpg", title:"Elle", tag:"character", num:"04" },
-    { src:"images/argentina-street.jpg", title:"Argentina Street", tag:"environment", num:"05" },
-    { src:"images/sunset-ave.jpg", title:"Sunset Ave", tag:"environment", num:"06" },
-    { src:"images/ny-attitude.jpg", title:"NY Attitude", tag:"character", num:"07" },
-    { src:"images/portrait-lova.jpg", title:"Lova", tag:"character", num:"08" },
-    { src:"images/westside-truck.jpg", title:"Westside", tag:"environment", num:"09" },
-    { src:"images/montecito-rooftop.jpg", title:"Montecito Nights", tag:"environment", num:"10" },
-    { src:"images/ojai-rooftop.jpg", title:"Ojai", tag:"environment", num:"11" },
-    { src:"images/gecko-scorpion.jpg", title:"True to Nature", tag:"commission", num:"12" },
-    { src:"images/magneto.jpg", title:"Magnetism", tag:"character", num:"13" },
-    { src:"images/wolverine-sabretooth.jpg", title:"Wolverine & Sabretooth (Fan Art)", tag:"commission", num:"14" },
+    { src:"images/peace-devil.png", title:"Peace Sign Devil", tag:"character", num:"01" },
+    { src:"images/mountain-village-bike.jpg", title:"Mountain Road", tag:"environment", num:"02" },
+    { src:"images/portrait-elle.jpg", title:"Elle", tag:"character", num:"03" },
+    { src:"images/argentina-street.jpg", title:"Argentina Street", tag:"environment", num:"04" },
+    { src:"images/sunset-ave.jpg", title:"Sunset Ave", tag:"environment", num:"05" },
+    { src:"images/ny-attitude.jpg", title:"NY Attitude", tag:"character", num:"06" },
+    { src:"images/portrait-lova.jpg", title:"Lova", tag:"character", num:"07" },
+    { src:"images/westside-truck.jpg", title:"Westside", tag:"environment", num:"08" },
+    { src:"images/montecito-rooftop.jpg", title:"Montecito Nights", tag:"environment", num:"09" },
+    { src:"images/ojai-rooftop.jpg", title:"Ojai", tag:"environment", num:"10" },
+    { src:"images/gecko-scorpion.jpg", title:"True to Nature", tag:"commission", num:"11" },
+    { src:"images/magneto.jpg", title:"Magnetism", tag:"character", num:"12" },
+    { src:"images/case-study-rage-of-aquarius.jpg", title:"Rage of Aquarius", tag:"case-study", num:"13", link:"https://www.behance.net/gallery/253565575/Rage-of-Aquarius" },
+    { src:"images/case-study-editorial-framework.jpg", title:"Editorial Framework", tag:"case-study", num:"14", link:"https://www.behance.net/gallery/253854371/Creative-Presentation-Framework" },
   ];
 
   const grid = document.getElementById('grid');
@@ -486,11 +493,17 @@
     grid.innerHTML = '';
     DATA.forEach(item => {
       if(filter !== 'all' && item.tag !== filter) return;
-      const card = document.createElement('div');
+      const card = document.createElement(item.link ? 'a' : 'div');
       card.className = 'card';
-      card.tabIndex = 0;
-      card.setAttribute('role','button');
-      card.setAttribute('aria-label', 'View ' + item.title + ' full size');
+      if(item.link){
+        card.href = item.link;
+        card.target = '_blank';
+        card.rel = 'noopener';
+      } else {
+        card.tabIndex = 0;
+        card.setAttribute('role','button');
+        card.setAttribute('aria-label', 'View ' + item.title + ' full size');
+      }
       card.innerHTML = `
         <div class="pin"></div>
         <img src="${item.src}" alt="${item.title}" loading="lazy">
@@ -498,8 +511,10 @@
         <span class="card-num">${item.num}</span>
         <div class="card-title">${item.title}</div>
       `;
-      card.addEventListener('click', () => openLightbox(item));
-      card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(item); } });
+      if(!item.link){
+        card.addEventListener('click', () => openLightbox(item));
+        card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLightbox(item); } });
+      }
       grid.appendChild(card);
     });
   }
